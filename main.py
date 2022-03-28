@@ -5,14 +5,17 @@ Length2=1
 k1=200
 k2=200
 
-stationary=sphere(pos=vec(0,Length1,0), radius=0.05)
+scene.background = color.white
+scene.caption = "Code is here: https://github.com/natecundiff/MP3PhysicsProject"
+
+stationary=sphere(pos=vec(0,Length1,0), radius=0.05, color=color.black)
 
 node1=sphere(pos=stationary.pos-vec(0,Length1,0),radius=0.05,color=color.blue)
-length1=helix(pos=stationary.pos,axis=node1.pos-stationary.pos,radius=0.015,color=color.yellow)
+length1=helix(pos=stationary.pos,axis=node1.pos-stationary.pos,radius=0.015,color=color.black)
 length1.coils = 30
 
 node2=sphere(pos=node1.pos-vec(0,Length2,0),radius=0.05,color=color.blue)
-length2=helix(pos=node1.pos, axis=node2.pos-node1.pos, radius=0.015,color=color.yellow)
+length2=helix(pos=node1.pos, axis=node2.pos-node1.pos, radius=0.015,color=color.black)
 length2.coils = 30
 
 mass1=20
@@ -40,6 +43,7 @@ dt=0.00001
 
 attach_trail(node2, retain=100, color=color.blue)
 
+
 #parallel
 
 BLength1=1.001
@@ -50,11 +54,11 @@ Bk2=200
 Bstationary=sphere(pos=vec(0,BLength1,0), radius=0.05)
 
 Bnode1=sphere(pos=Bstationary.pos-vec(0,BLength1,0),radius=0.05,color=color.red)
-Blength1=helix(pos=Bstationary.pos,axis=Bnode1.pos-Bstationary.pos,radius=0.015,color=color.yellow)
+Blength1=helix(pos=Bstationary.pos,axis=Bnode1.pos-Bstationary.pos,radius=0.015,color=color.black)
 Blength1.coils = 15
 
 Bnode2=sphere(pos=Bnode1.pos-vec(0,BLength2,0),radius=0.05,color=color.red)
-Blength2=helix(pos=Bnode1.pos, axis=Bnode2.pos-Bnode1.pos, radius=0.015,color=color.yellow)
+Blength2=helix(pos=Bnode1.pos, axis=Bnode2.pos-Bnode1.pos, radius=0.015,color=color.black)
 Blength2.coils = 15
 
 Bmass1=20
