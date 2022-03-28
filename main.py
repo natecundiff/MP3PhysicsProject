@@ -18,9 +18,6 @@ node2=sphere(pos=node1.pos-vec(0,Length2,0),radius=0.05,color=color.blue)
 length2=helix(pos=node1.pos, axis=node2.pos-node1.pos, radius=0.015,color=color.black)
 length2.coils = 30
 
-mass1=20
-mass2=20
-
 g=vec(0,-9.8,0)
 theta1=75*pi/180
 theta2=58*pi/180
@@ -33,6 +30,9 @@ length1.axis=node1.pos-stationary.pos
 length2.pos=node1.pos
 length2.axis=node2.pos-node1.pos
 
+mass1=20
+mass2=20
+
 node1.p=vec(0,0,0)
 node2.p=vec(0,0,0)
 node1.m=mass1
@@ -43,7 +43,6 @@ dt=0.00001
 
 attach_trail(node2, retain=100, color=color.blue)
 
-
 #parallel
 
 BLength1=1.001
@@ -51,7 +50,7 @@ BLength2=1.001
 Bk1=200
 Bk2=200
 
-Bstationary=sphere(pos=vec(0,BLength1,0), radius=0.05)
+Bstationary=sphere(pos=vec(0,BLength1,0), radius=0.05, color=color.black)
 
 Bnode1=sphere(pos=Bstationary.pos-vec(0,BLength1,0),radius=0.05,color=color.red)
 Blength1=helix(pos=Bstationary.pos,axis=Bnode1.pos-Bstationary.pos,radius=0.015,color=color.black)
@@ -60,9 +59,6 @@ Blength1.coils = 15
 Bnode2=sphere(pos=Bnode1.pos-vec(0,BLength2,0),radius=0.05,color=color.red)
 Blength2=helix(pos=Bnode1.pos, axis=Bnode2.pos-Bnode1.pos, radius=0.015,color=color.black)
 Blength2.coils = 15
-
-Bmass1=20
-Bmass2=20
 
 Bg=vec(0,-9.8,0)
 Btheta1=75*pi/180
@@ -75,6 +71,9 @@ Bnode2.pos=Bnode1.pos+vec(BLength2*sin(Btheta2),-BLength2*cos(Btheta2),0)
 Blength1.axis=Bnode1.pos-Bstationary.pos
 Blength2.pos=Bnode1.pos
 Blength2.axis=Bnode2.pos-Bnode1.pos
+
+Bmass1=20
+Bmass2=20
 
 Bnode1.p=vec(0,0,0)
 Bnode2.p=vec(0,0,0)
