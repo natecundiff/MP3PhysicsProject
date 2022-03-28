@@ -7,13 +7,13 @@ k2=200
 
 stationary=sphere(pos=vec(0,Length1,0), radius=0.05)
 
-node1=sphere(pos=stationary.pos-vec(0,Length1,0),radius=0.05,color=color.red)
+node1=sphere(pos=stationary.pos-vec(0,Length1,0),radius=0.05,color=color.blue)
 length1=helix(pos=stationary.pos,axis=node1.pos-stationary.pos,radius=0.015,color=color.yellow)
-length1.coils = 15
+length1.coils = 30
 
-node2=sphere(pos=node1.pos-vec(0,Length2,0),radius=0.05,color=color.red)
+node2=sphere(pos=node1.pos-vec(0,Length2,0),radius=0.05,color=color.blue)
 length2=helix(pos=node1.pos, axis=node2.pos-node1.pos, radius=0.015,color=color.yellow)
-length2.coils = 15
+length2.coils = 30
 
 mass1=20
 mass2=20
@@ -39,7 +39,6 @@ t=0
 dt=0.00001
 
 attach_trail(node2, retain=100, color=color.blue)
-
 
 #parallel
 
@@ -84,7 +83,7 @@ Bdt=0.00001
 attach_trail(Bnode2, retain=100, color=color.red)
 
 while Bt<120000:
-    rate(10000000)
+    rate(100000)
     Br1=Bnode1.pos-Bstationary.pos
     Br2=Bnode2.pos-Bnode1.pos
     BF2=Bnode2.m*Bg-Bk2*(mag(Br2)-BLength2)*norm(Br2)
